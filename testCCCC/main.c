@@ -10,38 +10,23 @@
 
 int main(int argc, const char * argv[]) {
     
-    char alphabet;
-    printf("Please enter a character between a to z: ");
-    scanf("%c", &alphabet);
+    char letter;
+    int x;
+    printf("Please enter a letter: ");
+    scanf("%c", &letter);
     
-    if ('a' <= alphabet && alphabet <= 'z') {
-        if (alphabet  == 'a') {
-            printf("A\n");
-        }else if(alphabet  == 'b'){
-            printf("B\n");
-        }else if(alphabet  == 'c'){
-            printf("C\n");
-        }else if(alphabet  == 'd'){
-            printf("D\n");
-        }else if(alphabet  == 'e'){
-            printf("E\n");
-        }else if(alphabet  == 'f'){
-            printf("F\n");
-        }else if(alphabet  == 'g'){
-            printf("G\n");
-        }else if(alphabet  == 'h'){
-            printf("H\n");
-        }else if(alphabet  == 'i'){
-            printf("I\n");
-        }else if(alphabet  == 'j'){
-            printf("J\n");
-        }else if(alphabet  == 'k'){
-            printf("K\n");
-        }else if(alphabet  == 'l'){
-            printf("L\n");
-        }
+    //if ('a' <= letter && letter <= 'z') {
+    if (97 <= letter && letter <= 122) {
+        x = letter -32;
+        printf("the UpperCase is: %c\n",x);
+        
+    }else if('A' <= letter && letter <= 'Z') {
+        x = letter + 32;
+        printf("the LowerCase is: %c\n",x);
+    
     }else{
-        printf("It's not a to z word.\n");
+        x = letter;
+        printf("You type charactor is %c\n Type uppercase alphabet.",x);
     }
     
     return 0;
