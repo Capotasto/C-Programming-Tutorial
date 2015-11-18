@@ -10,36 +10,28 @@
 
 int main(int argc, const char * argv[]) {
     
-    int i;
-    int choice;
-    int x,y;
+    int x;
 
-    for (; i >=0; ) {
-        
-        printf("Welcome to my program:\n");
-        printf("----------------------\n");
-        printf("For Addition press 1:\n");
-        printf("For Subtraction press 2:\n");
-        printf("For Multiplication press 3:\n");
-        printf("For Division press 4:\n");
-        printf("You choice:\n");
-        scanf("%i", &choice);
-        
-        printf("Enter two nmuber\n");
-        scanf("%i %i", &x,&y);
-        if (choice == 1) {
-            printf("The result: %i\n:",x + y);
-        }else if(choice == 2){
-            printf("The result: %i\n:",x - y);
-        }else if(choice == 3){
-            printf("The result: %i\n:",x * y);
-        }else if(choice == 4){
-            printf("The result: %i\n:",x / y);
-        }else{
-            printf("Should press between 1 to 4.");
-        }
-
-    }
+//    for (; i >=0; ) {
+//        scanf("%i",&x);
+//        printf("you entered: %i",x);
+//
+//    }
+    
+//    while (x >= 0) {
+//        printf("Enter a number: \n");
+//        scanf("%i",&x);
+//        printf("you entered: %i\n",x);
+//    }
+    
+    
+    do {
+        printf("Enter a number: \n");
+        scanf("%i",&x);
+        printf("you entered: %i\n",x);
+    } while (x >= 0);
+    
+    
     
     return 0;
 }
