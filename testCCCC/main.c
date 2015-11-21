@@ -10,55 +10,59 @@
 
 int main(int argc, const char * argv[]) {
     
-    int x;
-    
-    while (x >= 0) {
-        printf("Enter a number: \n");
-        scanf("%i",&x);
+    float x = 0;
+    int count;
+    float max =0;
+    float min =0;
+    int i = 1;
 
-        switch (x) {
-            case 1:
-                printf("January\n");
-                break;
-            case 2:
-                printf("February\n");
-                break;
-            case 3:
-                printf("March\n");
-                break;
-            case 4:
-                printf("April\n");
-                break;
-            case 5:
-                printf("May\n");
-                break;
-            case 6:
-                printf("June\n");
-                break;
-            case 7:
-                printf("July\n");
-                break;
-            case 8:
-                printf("August\n");
-                break;
-            case 9:
-                printf("September\n");
-                break;
-            case 10:
-                printf("October\n");
-                break;
-            case 11:
-                printf("November\n");
-                break;
-            case 12:
-                printf("December\n");
-                break;
-                
-            default:
-                printf("Enter a number between 1 to 12\n");
-                break;
+    
+    printf("How many number do you want to enter?: ");
+    scanf("%i", &count);
+    
+    
+    do {
+        
+        printf("Enter 1 values: ");
+        scanf("%f", &x);
+        
+        if (i == 1) {
+            max = x;
+            min = x;
         }
-    }
+        
+        if (max < x) {
+            max = x;
+        }
+        
+        if (min > x) {
+            min = x;
+        }
+        
+        printf("max number: %f\n", max);
+        printf("min number: %f\n\n", min);
+        
+        i++;
+
+    } while (i <= count);
+    
+//    for (int i = 1; i <= count; i++) {
+//        
+//        printf("Enter 1 values: ");
+//        scanf("%f", &x);
+//        
+//        if (max < x) {
+//            max = x;
+//        }
+//        
+//        if (min > x) {
+//            min = x;
+//        }
+//        
+//    }
+    
+    printf("%.1f is max\n",max);
+    printf("%.1f is min\n",min);
     
     return 0;
 }
