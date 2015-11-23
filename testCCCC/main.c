@@ -10,59 +10,29 @@
 
 int main(int argc, const char * argv[]) {
     
-    float x = 0;
-    int count;
-    float max =0;
-    float min =0;
-    int i = 1;
-
+    int g[10];
+    int sum = 0;
+    int i;
     
-    printf("How many number do you want to enter?: ");
-    scanf("%i", &count);
+    g[0] = 20;
+    g[1] = 13;
+    g[2] = 10;
+    g[3] = 11;
+    g[4] = 45;
+    g[5] = 13;
+    g[6] = 10;
+    g[7] = 11;
+    g[8] = 45;
+    g[9] = 35;
     
+    for (i = 0; i < 10; i++) {
+        printf("g[%i] is equal to %i\n",i,g[i]);
+        sum += g[i]; //sum = sum + g[i]
+        
+    }
+    printf("Sum is %i\n",sum);
+    printf("Average num %f\n",(float)sum/(float)i);
     
-    do {
-        
-        printf("Enter 1 values: ");
-        scanf("%f", &x);
-        
-        if (i == 1) {
-            max = x;
-            min = x;
-        }
-        
-        if (max < x) {
-            max = x;
-        }
-        
-        if (min > x) {
-            min = x;
-        }
-        
-        printf("max number: %f\n", max);
-        printf("min number: %f\n\n", min);
-        
-        i++;
-
-    } while (i <= count);
-    
-//    for (int i = 1; i <= count; i++) {
-//        
-//        printf("Enter 1 values: ");
-//        scanf("%f", &x);
-//        
-//        if (max < x) {
-//            max = x;
-//        }
-//        
-//        if (min > x) {
-//            min = x;
-//        }
-//        
-//    }
-    
-    printf("%.1f is max\n",max);
-    printf("%.1f is min\n",min);
     
     return 0;
 }
