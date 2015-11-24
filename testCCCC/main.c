@@ -11,71 +11,41 @@
 
 int main(int argc, const char * argv[]) {
     
-    int inputNum;
-    int calcNum;
-    int inputDigitNum = 0;
-    int digitNum = 0;
-    int remeinNum = 0;
     
-    printf("Enter a Number: ");
-    scanf("%i", &inputNum);
+    int compareCount;
     
-    //Calcurate Digit number of input number
-    calcNum = inputNum;
-    while (calcNum != 0) {
-        calcNum = calcNum / 10;
-        inputDigitNum++;
+    printf("How many number do you have and compare?: ");
+    scanf("%i",&compareCount);
+    
+    int inputNum[compareCount];
+    
+    for (int i = 0; i < compareCount; i++) {
+        printf("Please Enter %i number One by one: ",compareCount);
+        scanf("%i",&inputNum[i]);
     }
     
-    for (int i = 0; i < inputDigitNum; i++) {
-        if (i ==0) {
-            printf("digit is %i\n", inputNum/(int)pow(10,inputDigitNum-i-1));
-            remeinNum = inputNum % (int)pow(10,inputDigitNum-i-1);
-            calcNum = remeinNum;
-        }else{
-            //Calcurate Digit number of input number
-            
-            digitNum = 0;
-            while (calcNum != 0) {
-                calcNum = calcNum / 10;
-                digitNum++;
-            }
-            if (digitNum != inputDigitNum-i) {
-                printf("digit is 0\n");
-            }else{
-                printf("digit is %i\n", remeinNum/(int)pow(10,inputDigitNum-i-1));
-                remeinNum = remeinNum % (int)pow(10,inputDigitNum-i-1);
-            }
-            calcNum = remeinNum;
-            
-        }
+    while (1) {
+        //SortCounter
+        int sortCounter = 0;
         
+        for (int i = 0; i < compareCount-1; i++) {
+            if (inputNum[i+1] < inputNum[i])  {
+                //Swapping
+                int t;
+                t = inputNum[i+1];
+                inputNum[i+1] = inputNum[i];
+                inputNum[i] = t;
+                sortCounter++;
+            }
+        }
+        if (sortCounter == 0) {
+            break;
+        }
     }
     
-    
-    //    char inputChar;
-    //
-    //    printf("Enter a alphabet:");
-    //    scanf("%c",&inputChar);
-    //
-    //    switch (inputChar) {
-    //        case 'a':
-    //        case 'A':
-    //        case 'e':
-    //        case 'E':
-    //        case 'i':
-    //        case 'I':
-    //        case 'o':
-    //        case 'O':
-    //        case 'u':
-    //        case 'U':
-    //            printf("You entered a vowel.\n");
-    //            break;
-    //        default:
-    //            printf("You entered other types of alphabet is not vowel {a,e,i,o,u}\n");
-    //            break;
-    //    }
-    
+    for (int k = 0; k < compareCount ; k++) {
+        printf("Sorted Number: %i\n",inputNum[k]);
+    }
     
     return 0;
 }
