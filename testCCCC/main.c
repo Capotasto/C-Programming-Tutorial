@@ -11,63 +11,57 @@
 
 int main(int argc, const char * argv[]) {
     
-    int limitCount;
-    int isPrimeNumber;
+    int limitNumber;
+    int divideFlg = 1;
+    int quotientNum;
+    int remainder;
     
-    printf("What number is limit to get prime number?: ");
-    scanf("%i",&limitCount);
+    printf("What Decimal number is to get get Binary numer : ");
+    scanf("%i",&limitNumber);
     
-    for (int i = 2; i <= limitCount; i++) {
-        
-        isPrimeNumber = 1;
-        
-        for (int j = 1; j <= i; j++) {
-            if (j != 1 && j != i) {
-                if (i % j == 0) {
-                    isPrimeNumber = 0;
-                }
-            }
+    int i = 0;
+    int tempNum = limitNumber;
+    while (divideFlg) {
+        quotientNum = tempNum/2;
+        if (quotientNum == 1) {
+            divideFlg = 0;
+        }else{
+            tempNum = quotientNum;
         }
-        if (isPrimeNumber == 1) {
-            printf("%i is Prime number!\n", i);
-        }
+        i++;
     }
     
+    int binaryNum[i+1];
     
-//    int compareCount;
-//    
-//    printf("How many number do you have and compare?: ");
-//    scanf("%i",&compareCount);
-//    
-//    int inputNum[compareCount];
-//    
-//    for (int i = 0; i < compareCount; i++) {
-//        printf("Please Enter %i number One by one: ",compareCount);
-//        scanf("%i",&inputNum[i]);
-//    }
-//    
-//    while (1) {
-//        //SortCounter
-//        int sortCounter = 0;
-//        
-//        for (int i = 0; i < compareCount-1; i++) {
-//            if (inputNum[i+1] < inputNum[i])  {
-//                //Swapping
-//                int t;
-//                t = inputNum[i+1];
-//                inputNum[i+1] = inputNum[i];
-//                inputNum[i] = t;
-//                sortCounter++;
-//            }
-//        }
-//        if (sortCounter == 0) {
-//            break;
-//        }
-//    }
-//    
-//    for (int k = 0; k < compareCount ; k++) {
-//        printf("Sorted Number: %i\n",inputNum[k]);
-//    }
+    
+    divideFlg = 1;
+    i =0;
+    while (divideFlg) {
+        
+        quotientNum = limitNumber/2;
+        remainder = limitNumber%2;
+        
+        if (quotientNum == 1) {
+            divideFlg = 0;
+            binaryNum[i] = remainder;
+            binaryNum[i+1] = quotientNum;
+
+        }else{
+            limitNumber = quotientNum;
+            binaryNum[i] = remainder;
+
+        }
+        i++;
+    }
+    printf("The binay number is ");
+    for (int j= 0; j < i+1; j++) {
+        printf("%i",binaryNum[i-j]);
+
+    }
+    printf("\n");
+
+    
+    
     
     return 0;
 }
