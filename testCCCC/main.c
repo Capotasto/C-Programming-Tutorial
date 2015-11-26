@@ -38,7 +38,7 @@ int main(int argc, const char * argv[]) {
 	switch (baseNumber) {
 	case 2:
 		for (i = 0; i < inputSize; i++) {
-			decimalNum += (input[i] - '0') * pow((float)baseNumber, inputSize - i - 1);
+			decimalNum += getDecimalNum(input[i], '0', baseNumber, inputSize - i - 1);
 			printf("fk %i\n", decimalNum);
 
 		}
@@ -47,13 +47,10 @@ int main(int argc, const char * argv[]) {
 	case 16:
 		for (i = 0; i < inputSize; i++) {
 			if ('0' <= input[i] && input[i] <= '9'){
-				decimalNum += (input[i] - '0') * pow((float)baseNumber, inputSize - i - 1);
-				printf("fk %i\n", decimalNum);
-
+				decimalNum += getDecimalNum(input[i], '0', baseNumber, inputSize - i - 1);
 			}
-			else if ('A' <= input[i] && input[i] <= 'F'){
-				decimalNum += (input[i] - '7') * pow((float)baseNumber, inputSize - i - 1);
-				printf("fk %i\n", decimalNum);
+			else if (('A' <= input[i] && input[i] <= 'F') || ('a' <= input[i] && input[i] <= 'f')){
+				decimalNum += getDecimalNum(input[i], '7', baseNumber, inputSize - i - 1);
 			}
 			else{
 				printf("This is not Hex Number");
